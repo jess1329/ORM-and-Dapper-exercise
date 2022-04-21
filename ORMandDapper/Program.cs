@@ -20,6 +20,14 @@ namespace ORMandDapper
 
             IDbConnection conn = new MySqlConnection(connString);
 
+            var repo = new DapperDepartmentRepository(conn);
+
+           var departments = repo.GetAllDepartments();
+
+            foreach (var dept in departments) 
+            {
+                Console.WriteLine($"{dept.DepartmentID} {dept.Name}");
+            }
 
 
 
